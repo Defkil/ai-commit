@@ -10,9 +10,18 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <toolWindow factoryClass="com.github.defkil.aicommit.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <checkinHandlerFactory implementation="com.github.defkil.aicommit.handlers.MyCommitHandlerFactory"/>
     </extensions>
 
     <applicationListeners>
         <listener class="com.github.defkil.aicommit.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
     </applicationListeners>
+    <actions>
+        <action
+                id="com.github.defkil.aicommit.meineAktion"
+                class="com.github.defkil.aicommit.actions.MeineAktion">
+            <add-to-group group-id="Vcs.MessageActionGroup" anchor="last" />
+            <keyboard-shortcut first-keystroke="control N" keymap="$default" />
+        </action>
+    </actions>
 </idea-plugin>
